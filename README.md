@@ -28,3 +28,8 @@ The stack is based on **Prometheus (metrics collection)** and **Grafana (visuali
 ---
 
 ## 🧱 Architecture
+
+Node Exporter ─┐
+cAdvisor ─┼──→ Prometheus ───→ Grafana
+nginx-exporter ─┘
+
