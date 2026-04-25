@@ -29,8 +29,11 @@ The stack is based on **Prometheus (metrics collection)** and **Grafana (visuali
 
 ## 🧱 Architecture
 
-
-
+```
+Node Exporter  ─┐
+cAdvisor       ─┼──→ Prometheus ───→ Grafana
+nginx-exporter ─┘
+```
 
 ---
 
@@ -62,14 +65,22 @@ server {
         allow 172.17.0.0/16;
         deny all;
     }
-}```
-
+}
+```
 
 These metrics are scraped using:
 
+```
 nginx-prometheus-exporter
-🚀 Implementation
-🔹 Docker Compose
+```
+
+---
+
+## 🚀 Implementation
+
+### 🔹 Docker Compose
+
+```yaml
 version: "3.8"
 
 services:
@@ -100,7 +111,13 @@ services:
       - -nginx.scrape-uri=http://host.docker.internal:8082/nginx_status
     ports:
       - "9113:9113"
-🔹 Prometheus Configuration
+```
+
+---
+
+### 🔹 Prometheus Configuration
+
+```yaml
 global:
   scrape_interval: 5s
 
@@ -116,37 +133,75 @@ scrape_configs:
   - job_name: "nginx"
     static_configs:
       - targets: ["nginx-exporter:9113"]
-📊 Dashboards
+```
+
+---
+
+## 📊 Dashboards
 
 Imported dashboards from Grafana:
 
-1860 → Node Exporter Full
-193 → cAdvisor (Docker monitoring)
-12708 → Nginx Monitoring
-⚠️ Challenges & Troubleshooting
-❌ Prometheus scraping localhost
-Cause: container isolation
-Fix: use host.docker.internal
-❌ Docker DNS / networking issues
-Cause: services not reachable
-Fix: correct targets and networking
-❌ SELinux blocking nginx port
+- **1860** → Node Exporter Full  
+- **193** → cAdvisor (Docker monitoring)  
+- **12708** → Nginx Monitoring  
+
+---
+
+## ⚠️ Challenges & Troubleshooting
+
+### ❌ Prometheus scraping `localhost`
+- Cause: container isolation  
+- Fix: use `host.docker.internal`
+
+---
+
+### ❌ Docker DNS / networking issues
+- Cause: services not reachable  
+- Fix: correct targets and networking
+
+---
+
+### ❌ SELinux blocking nginx port
+
+```bash
 semanage port -a -t http_port_t -p tcp 8082
-❌ Exporter returning only internal metrics
-Cause: nginx not reachable
-Fix: expose stub_status properly
-📈 Results
-Real-time monitoring (5s interval)
-Full visibility into system resources
-Container-level monitoring
-Nginx metrics (connections, requests)
-🧠 Key Learnings
-Prometheus pull-based monitoring model
-Docker networking and service discovery
-Exporter-based observability
-Troubleshooting distributed systems
-🔐 Future Improvements
-Add alerting (Grafana / Alertmanager)
-Add logging (Loki / ELK)
-Monitor additional services
-Extend to Kubernetes (k3s)
+```
+
+---
+
+### ❌ Exporter returning only internal metrics
+- Cause: nginx not reachable  
+- Fix: expose `stub_status` properly
+
+---
+
+## 📈 Results
+
+- Real-time monitoring (5s interval)
+- Full visibility into system resources
+- Container-level monitoring
+- Nginx metrics (connections, requests)
+
+---
+
+## 🧠 Key Learnings
+
+- Prometheus pull-based monitoring model  
+- Docker networking and service discovery  
+- Exporter-based observability  
+- Troubleshooting distributed systems  
+
+---
+
+## 🔐 Future Improvements
+
+- Add alerting (Grafana / Alertmanager)  
+- Add logging (Loki / ELK)  
+- Monitor additional services  
+- Extend to Kubernetes (k3s)  
+
+---
+
+## 💼 Resume Statement
+
+> Built a monitoring stack using Prometheus and Grafana to collect and visualize system and application metrics in a Docker-based environment.
