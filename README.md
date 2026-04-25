@@ -6,10 +6,13 @@ This project implements a monitoring stack in a homelab environment to observe:
 System resources (CPU, RAM, Disk, Network)
 Docker containers
 Nginx reverse proxy activity
+
 🧱 Architecture
+
 Node Exporter  ─┐
 cAdvisor       ─┼──→ Prometheus ───→ Grafana
 nginx-exporter ─┘
+
 ⚙️ Stack Components
 Component	Role
 Prometheus	Metrics collection
