@@ -5,6 +5,8 @@
 ![Grafana](https://img.shields.io/badge/Visualization-Grafana-yellow)
 
 <img width="1904" height="888" alt="image" src="https://github.com/user-attachments/assets/4f7f869a-92ba-4781-8215-505f0951411f" />
+<img width="1135" height="590" alt="image" src="https://github.com/user-attachments/assets/00b5cbc0-e31e-4c02-bf6d-cb8c7f4fd876" />
+
 
 ---
 
