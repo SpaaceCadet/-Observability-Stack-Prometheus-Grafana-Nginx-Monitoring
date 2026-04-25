@@ -4,9 +4,9 @@
 ![Prometheus](https://img.shields.io/badge/Monitoring-Prometheus-orange)
 ![Grafana](https://img.shields.io/badge/Visualization-Grafana-yellow)
 
-<img width="1904" height="888" alt="image" src="https://github.com/user-attachments/assets/4f7f869a-92ba-4781-8215-505f0951411f" />
-<img width="1605" height="713" alt="image" src="https://github.com/user-attachments/assets/36ec5e31-00a1-4d98-8aac-973c29caa132" />
-<img width="1545" height="822" alt="image" src="https://github.com/user-attachments/assets/0521b05e-dad8-4072-921a-71f4e25c01a3" />
+<img width="1904" height="700" alt="image" src="https://github.com/user-attachments/assets/4f7f869a-92ba-4781-8215-505f0951411f" />
+<img width="1605" height="700" alt="image" src="https://github.com/user-attachments/assets/36ec5e31-00a1-4d98-8aac-973c29caa132" />
+<img width="1545" height="700" alt="image" src="https://github.com/user-attachments/assets/0521b05e-dad8-4072-921a-71f4e25c01a3" />
 
 
 
