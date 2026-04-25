@@ -62,7 +62,8 @@ server {
         allow 172.17.0.0/16;
         deny all;
     }
-}
+}```
+
 
 These metrics are scraped using:
 
@@ -149,4 +150,3 @@ Add alerting (Grafana / Alertmanager)
 Add logging (Loki / ELK)
 Monitor additional services
 Extend to Kubernetes (k3s)
-
